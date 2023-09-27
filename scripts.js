@@ -9,20 +9,28 @@ const subtractHandler =()=> {
     const newValue = parseInt (number.value) - 1;
     number.value = newValue;
 
-    if (newValue <= MIN_NUMBER){
-        subtract.disabled = true
-    }else {
-        subtract.disabled = false
+    if(add.disabled === true){
+        add.disabled = false
     }
+
+    if(newValue <= MIN_NUMBER){
+        subtract.disabled = true
+    }
+   
+ 
 }
 const addHandler =()=> {
     const newValue = parseInt (number.value) + 1;
     number.value = newValue;
-    if (newValue >= MAX_NUMBER){
-        add.disabled = true
-    }else {
-        add.disabled = false
+  
+    if(subtract.disabled === true){
+        subtract.disabled = false
     }
+
+    if(newValue >= MAX_NUMBER){
+        add.disabled = true
+    }
+    
 }
 subtract.addEventListener('click', subtractHandler);
 add.addEventListener('click', addHandler)
